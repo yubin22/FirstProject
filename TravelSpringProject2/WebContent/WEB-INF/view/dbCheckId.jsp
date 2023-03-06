@@ -12,7 +12,7 @@
 	function sendCheckValue() {
 		var openJoinfrm = opener.document.register;
 		
-		if (document.checkIdForm.id.value=="N") {
+		if (document.checkIdForm.id.value=="") {
 			alert("다른 아이디를 입력해주세요.");
 			openJoinfrm.id.focus();
 			
@@ -39,7 +39,7 @@
 			<c:when test="${result.id!=null}">
 				<input type="text" name="id" value="${result.id}" id="id" >
 				<p style="color: red">이미 사용 중인 아이디입니다.</p>
-				<input type="submit"  value="다시입력"/>
+				<input type="submit"  value="중복 체크"/>
 			</c:when>
 			<c:when test="${result.id==null}">
 				<p>${param.id}는 사용가능한 아이디입니다.</p>
@@ -48,10 +48,9 @@
 			</c:when>
 			<c:otherwise>
 				<input type="text" name="id" value="${result.id}" id="id" >
-				<input type="submit"  value="다시입력"/>
+				<input type="submit"  value="중복 체크"/>
 			</c:otherwise>
 		</c:choose>
-
 
 	</form>
 </body>

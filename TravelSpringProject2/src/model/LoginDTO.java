@@ -6,7 +6,7 @@ package model;
  */
 public class LoginDTO {
 	private String id;
-	private int pwd;
+	private String pwd;
 	private String name;
 	private String birth;
 	private String gender;
@@ -17,7 +17,7 @@ public class LoginDTO {
 	public String getId() {
 		return id;
 	}
-	public int getPwd() {
+	public String getPwd() {
 		return pwd;
 	}
 	public String getName() {
@@ -41,7 +41,7 @@ public class LoginDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public void setPwd(int pwd) {
+	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
 	public void setName(String name) {

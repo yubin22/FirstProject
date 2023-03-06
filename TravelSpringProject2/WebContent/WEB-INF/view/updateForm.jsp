@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>회원 정보 변경</title>
 <script type="text/javascript">
-	//변경 시 메인 페이지로
+	//취소 시 메인 페이지로
 	function goMain(){
 		location.href="main.sp"
 	}
@@ -73,7 +73,8 @@
 				
 				<tr>
 					<td>
-						<input type = "submit" value="저장" onclick="goMain()"/>
+						<input type = "submit" value="저장" />
+						<input type = "button" value="취소" onclick="goMain()"/>
 					</td>
 				</tr>
 			</table>

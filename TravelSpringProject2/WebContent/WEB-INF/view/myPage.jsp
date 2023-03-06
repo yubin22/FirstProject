@@ -10,7 +10,7 @@
 <!-- 회원 정보 변경 / 탈퇴 -->
 <!-- ${login.id} -->
 <jsp:useBean id="login" class="model.LoginDTO" scope = "session"/>
-당신의 id = <jsp:getProperty property="id" name="login"/>
+당신의 id = ${login.id}
 <br>
 
 <form action="deleteForm.sp">

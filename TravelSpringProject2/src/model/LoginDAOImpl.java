@@ -14,6 +14,7 @@ public class LoginDAOImpl implements LoginDAO {
 		this.sqlMapClientTemplate = sqlMapClientTemplate;
 	}
 
+	//login 정보 읽기
 	@Override
 	public LoginDTO getLogin(LoginDTO dto) { //중복데이터 고려 (dto에는 유일성이 보장된 key)
 		LoginDTO result = (LoginDTO) sqlMapClientTemplate.queryForObject("getLogin", dto);

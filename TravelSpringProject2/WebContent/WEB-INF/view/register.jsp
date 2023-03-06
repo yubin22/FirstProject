@@ -14,7 +14,7 @@
 		{ //아이디
 			alert("아이디를 입력해주세요.");
 			document.register.id.focus();
-		}else if(document.register.idDuplication.value != "idCheck") //!= "idCheck"
+		}else if(document.register.idDuplication.value != "idCheck") 
 		{ //아이디 중복 채크
 			alert("아이디 중복 체크를 해주세요.");
 			document.register.idDuplication.focus();
@@ -91,10 +91,12 @@
 	                    <td>
 	                    	<!-- 중복 체크 후 새로운 아이디 입력 시 중복 체크 안 된것으로 간주 -->
 	                        <input type="text" name="id" maxlength="20" class="id_input" onkeydown="inputIdChk()">
-	                         <!-- 중복 체크 버튼 -->
-	                         <button type="button" onclick="dbCheckId()" name="checkId" class="checkId">
-	                         중복 확인
-	                         </button>
+		                         
+		                         <!-- 중복 체크 버튼 -->
+		                         <button type="button" onclick="dbCheckId()" name="checkId" class="checkId">
+		                         	중복 확인
+		                         </button>
+	                         
 	                         <!-- 중복 체크 여부 -->
 	                         <input type="hidden" name="idDuplication" value="idUncheck">
 	                    </td>
@@ -133,7 +135,7 @@
                     <td id="title">성별</td>
                     <td>
                         <input type="radio" name="gender" value="남" checked>남
-                        <input type="radio" name="gender" value="여" checked>여
+                        <input type="radio" name="gender" value="여">여
                     </td>
                 </tr>
                     

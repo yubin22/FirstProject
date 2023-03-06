@@ -9,7 +9,7 @@
 <body>
 <b>회원정보가 삭제되었습니다.</b>
 	<!-- main으로 돌아감 -->
-	<input type="button" value="확인" onclick="javascript:window.location='main.jsp'">
+	<input type="button" value="확인" onclick="javascript:window.location='loginForm.sp'">
 </body>
 </html>
 

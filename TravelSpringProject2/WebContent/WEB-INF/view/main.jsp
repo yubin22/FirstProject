@@ -1,7 +1,8 @@
-<!-- ${login.id} --><%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<jsp:useBean id="login" type="model.LoginDTO" scope = "session"/>
 <head>
 <meta charset="UTF-8">
 <title>메인 페이지</title>
@@ -14,13 +15,15 @@
 </head>
 <body>
 <h2>메인 페이지</h2>
+
 <!-- 로그인 후, 아이디 선택 시 afterLogin으로  -->
-	<jsp:useBean id="login" type="model.LoginDTO" scope = "session"/>
 	<a href="mainAction.sp">
-		당신의 id = <jsp:getProperty property="id" name="login"/>
+		당신의 id = ${login.id}
 	</a>
+	
 <!-- 로그아웃 -->
 <input type="button" value="로그아웃" onclick="logout()" />
+
 </body>
 </html>
 

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<jsp:useBean id="login" type="model.LoginDTO" scope = "session"/>
 <head>
 <meta charset="UTF-8">
 <title>회원 탈퇴</title>
@@ -22,8 +23,7 @@
 </head>
 <body>
 <h2>회원 탈퇴</h2>
-<form name="deleteForm" action="deleteAction.sp" method="get">
-<jsp:useBean id="login" type="model.LoginDTO" scope = "session"/>
+<form name="deleteForm" action="deleteAction.sp" method="get" onsubmit="return confirm('정말 탈퇴 하시겠습니까?')">
 <table>
 	<tr>
 		<th>비밀번호</th>
