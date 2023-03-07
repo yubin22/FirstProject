@@ -43,15 +43,13 @@ public class LoginController {
 		LoginDTO result = loginService.getLogin(dto);		//읽기
 		System.out.println(result);
 			
-			if ((result.getId().equals(req))&&(result.getPwd().equals(req1))) {		//input과 dto에 있는 값이 같을 경우 = 로그인 성공
-
+			if(result == null) {
+				System.out.println("loginFail");
+			}else if ((result.getId().equals(req))&&(result.getPwd().equals(req1))) {		//input과 dto에 있는 값이 같을 경우 = 로그인 성공
 				session.setAttribute("login", result);
 				return "main"; //로그인 성공 시 메인으로
-
-			} else {		//로그인에 실패했을 경우, alert를 만들어 로그인 페이지로 돌아감
-				
-				return "loginAction";
 			}
+			return "fail";
 	}
 	
 	//로그아웃
@@ -61,7 +59,7 @@ public class LoginController {
 		System.out.println("logout");
 		
 		session.invalidate(); //세션 정보 삭제
-		return "loginForm"; 
+		return "redirect:/loginForm.sp"; 
 	}
 	
 	//main페이지

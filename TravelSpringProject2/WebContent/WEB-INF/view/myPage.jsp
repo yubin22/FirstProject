@@ -5,6 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
+<script type="text/javascript">
+        // 로그아웃 담당으로 이동
+        function logout(){
+            location.href="logoutAction.sp";
+        }
+</script>
 </head>
 <body>
 <!-- 회원 정보 변경 / 탈퇴 -->
@@ -13,12 +19,10 @@
 당신의 id = ${login.id}
 <br>
 
-<form action="deleteForm.sp">
-<input type="submit" value="회원 탈퇴">
-</form>
+<input type="button" value="회원 탈퇴" onclick="javascript:window.location='deleteForm.sp'">
 
-<form action="update.sp">
-<input type="submit" value="회원 정보 수정">
-</form>
+<input type="button" value="회원 정보 수정" onclick="javascript:window.location='update.sp'">
+
+<input type="button" value="로그아웃" onclick="logout()" />
 </body>
 </html>
