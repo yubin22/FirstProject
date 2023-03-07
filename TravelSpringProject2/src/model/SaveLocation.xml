@@ -33,7 +33,7 @@
  	select s.id, s.location_num, l.location_num, l.region
 	from saved_location s
 	join location l
-	on (s.location_num = l.location_num);
+	on (s.location_num = l.location_num)
 	where id=#id#
  </select> 
  
