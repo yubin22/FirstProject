@@ -25,6 +25,20 @@ public class SaveLocationController {
 	@Resource
 	private SaveLocationService saveLocationService;
 	
+	//관광지 목록 페이지
+		@RequestMapping("/spotList.sp")
+		public String spotList(){
+			System.out.println("spotList");
+			return "spotList";
+		}
+		
+	//관광지 상세 페이지로
+		@RequestMapping("/spotInfo.sp")
+		public String spotInfo(){
+				System.out.println("spotInfo");
+				return "spotInfo";
+		}
+	
 	//관광지 상세 페이지
 		@RequestMapping("/spot.sp")
 		public String spot(){

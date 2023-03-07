@@ -32,6 +32,10 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				
+				<!-- 계획 만들기 -->
+				<!-- 목록 가기 -->
+				<input type = "button" value="목록 보기" onclick="javascript:window.location='spotList.sp'"/>
 </div>
 </body>
 </html>

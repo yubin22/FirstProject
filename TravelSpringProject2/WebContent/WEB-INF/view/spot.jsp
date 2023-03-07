@@ -16,8 +16,8 @@
 	}
 	
 	function save() {
-		alert("목록으로 가시겠습니까?");
-		location.href="myList.sp?id="+document.id.value;
+		alert("저장한 여행지 보러 가시겠습니까?");
+		location.href="myList.sp?id="+${login.id};
 	}
 </script>
 </head>
