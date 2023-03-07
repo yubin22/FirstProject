@@ -93,11 +93,11 @@ public class LoginController {
 	
 	//아이디 중복 체크
 	@RequestMapping("/dbCheckId.sp")
-	public String dbCheckId(LoginDTO dto, HttpSession session) {
+	public String dbCheckId(LoginDTO dto, HttpServletRequest request) {
 		System.out.println("요청한 아이디 : "+ dto.getId());
 		LoginDTO result = loginService.idCheck(dto);
-		session.setAttribute("result", result);  		 //${result. -> dto에 있는 결과
-		session.setAttribute("param", result);		 //${param.
+		request.setAttribute("result", result);  		 //${result. -> dto에 있는 결과
+		request.setAttribute("param", result);		 //${param.
 		return "dbCheckId";
 	}
 	

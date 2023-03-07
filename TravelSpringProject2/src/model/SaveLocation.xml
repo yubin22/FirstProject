@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC 
+	"-//iBATIS.com//DTD SQL Map 2.0//EN"
+	"http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap>
+ 
+ <cacheModel type="LRU" id="guestCashe">
+ 	<flushInterval hours="24"/>
+ 	<flushOnExecute statement="insertGuest"/>
+ 	<property name="size" value="10"/>
+ </cacheModel>
+ 
+ 
+ <!-- typeAlias : 해당 클래스에 별명 지정  -->
+ <typeAlias alias="save" type="model.SaveLocationDTO" />
+ 
+ <resultMap class="save" id="saveResult"> <!-- queryForMap,List 사용위해 -->
+ 
+	<result property="id" column="id" />  	 	
+	<result property="locationNum" column="location_num" />    	 	
+	<result property="region" column="region" />    	 
+	
+ </resultMap>
+ 
+ <!-- 목록 추가 -->
+ <insert id="addSave" parameterClass="save" >
+ 	insert into saved_location (id, location_num)
+ 	values(#id#,#locationNum#)
+ </insert> 
+ 
+<!-- 목록 -->
+ <select id="getSave" parameterClass="hashmap" resultMap="saveResult">
+ 	select s.id, s.location_num, l.location_num, l.region
+	from saved_location s
+	join location l
+	on (s.location_num = l.location_num);
+	where id=#id#
+ </select> 
+ 
+ <!-- 목록 삭제 -->
+ <delete id="deleteSave" parameterClass="save">
+ delete from saved_locationr where location_num = #locationNum#
+ </delete>
+ 
+ <!-- 목록, 회원 확인 -->
+ <select id="checkSave" parameterClass="save" resultClass="save">
+ 	select * from saved_location where id = #id# and location_num = #locationNum#
+ </select> 
+ 
+ 
+</sqlMap>

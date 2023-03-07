@@ -29,12 +29,22 @@
 		<property name="sqlMapClient" ref="sqlMapClient" />
 	</bean>
 	
+	<!-- 로그인 -->
 	<bean id="loginDAO" class="model.LoginDAOImpl">
 		<property name="sqlMapClientTemplate" ref="sqlMapClientTemplate" />
 	</bean>
 	
 	<bean id="loginService" class="service.LoginServiceImpl">
 		<property name="loginDAO" ref="loginDAO"></property>
+	</bean>
+	
+	<!-- 목록 저장 -->
+	<bean id="saveLocationDAO" class="model.SaveLocationDAOImpl">
+		<property name="sqlMapClientTemplate" ref="sqlMapClientTemplate" />
+	</bean>
+	
+	<bean id="saveLocationService" class="service.SaveLocationServiceImpl">
+		<property name="saveLocationDAO" ref="saveLocationDAO"></property>
 	</bean>
 	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

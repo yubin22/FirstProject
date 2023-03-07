@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<jsp:useBean id="result" class="model.LoginDTO" scope="session"></jsp:useBean>
 <head>
 <meta charset="UTF-8">
 <title>아이디 중복 체크</title>

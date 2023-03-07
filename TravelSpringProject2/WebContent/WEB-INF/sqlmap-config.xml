@@ -5,6 +5,7 @@
 <sqlMapConfig>
 
 	<sqlMap resource="model/Login.xml"/>
+	<sqlMap resource="model/SaveLocation.xml"/>
 		
 </sqlMapConfig>
 

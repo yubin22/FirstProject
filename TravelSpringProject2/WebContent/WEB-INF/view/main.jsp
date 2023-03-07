@@ -20,6 +20,10 @@
 	<a href="mainAction.sp">
 		당신의 id = ${login.id}
 	</a>
+	<br>
+	
+<!-- 로그인 후, 여행지 저장 리스트로  -->
+	<input type="button" value="저장한 여행지" onclick="javascript:window.location='myList.sp'" />
 	
 <!-- 로그아웃 -->
 <input type="button" value="로그아웃" onclick="logout()" />
