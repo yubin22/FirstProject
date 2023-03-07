@@ -32,6 +32,14 @@
 	</script>
 </c:if>
 
+<!-- 로그인 됐을때 -->
+<c:if test = "${login ne null}">
+	<script type="text/javascript">
+		alert("저장한 여행지 보러 가시겠습니까?");
+		location.href="saveAction.sp";
+	</script>
+</c:if>
+
 <input type = "button" value="저장" onclick="save()"/>
 <input type="hidden" name="id" value='${login.id}' />
 </body>

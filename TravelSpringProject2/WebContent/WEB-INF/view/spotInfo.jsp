@@ -15,5 +15,6 @@
 
 <input type = "button" value="저장" onclick="javascript:window.location='spot.sp'"/>
 <input type="hidden" name="id" value='${login.id}' />
+
 </body>
 </html>

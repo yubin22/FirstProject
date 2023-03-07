@@ -3,6 +3,8 @@ package service;
 import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import model.LoginDTO;
 import model.SaveLocationDAO;
 import model.SaveLocationDTO;
@@ -25,6 +27,8 @@ public class SaveLocationServiceImpl implements SaveLocationService {
 	//목록 추가 데이터
 	@Override
 	public int addSave(SaveLocationDTO save) {
+		//장바구니 데이터 체크
+		SaveLocationDTO checkcart = saveLocationDAO.checkSave(save);
 		return saveLocationDAO.addSave(save);
 	}
 
@@ -34,9 +38,10 @@ public class SaveLocationServiceImpl implements SaveLocationService {
 		return saveLocationDAO.deleteSave(save);
 	}
 
+	//장바구니 정보 반환
 	@Override
 	public List<SaveLocationDTO> getSaveList(String id) {
-		return saveLocationDAO.getSaveList(id);
+		return saveLocationDAO.getSaveList(id); 	//saveLocationDAO.getSaveList(id)
 	}
 
 }

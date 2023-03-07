@@ -30,7 +30,7 @@ public class SaveLocationController {
 		public String spotList(){
 			System.out.println("spotList");
 			return "spotList";
-		}
+		}	
 		
 	//관광지 상세 페이지로
 		@RequestMapping("/spotInfo.sp")
@@ -50,13 +50,6 @@ public class SaveLocationController {
 	@RequestMapping("/saveAction.sp")
 	public String saveform(SaveLocationDTO save, HttpServletRequest request) {
 		
-		//로그인 체크
-		HttpSession session = request.getSession();
-		LoginDTO result = (LoginDTO) session.getAttribute("login");
-		if(result == null) {
-			return "loginForm"; 	//로그인 정보가 없으면 로그인폼으로 감. 
-		}
-		
 		//관광지 저장 후 (성공 시 1, 실패 시 0)
 		int result1 = saveLocationService.addSave(save);
 		request.setAttribute("save", result1);
@@ -70,6 +63,26 @@ public class SaveLocationController {
 		System.out.println("myList");
 		return "myList";
 	}
+	
+	//계획세우기
+		@RequestMapping("/makeList.sp")
+		public String makeList(){
+			System.out.println("makeList");
+			return "makeList";
+		}
+	
+	//삭제하기
+		@RequestMapping("/delete.sp")
+		public String delete(SaveLocationDTO save) {
+			
+			int result = saveLocationService.deleteSave(save);		//save.getId()
+			//장바구니 페이지로
+			String res = "redirect:/myList.sp";
+			if (result == 0) {
+				res = "fail";
+			}
+			return res;
+		}
 
 }
 

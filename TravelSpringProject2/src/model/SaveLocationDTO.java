@@ -1,4 +1,7 @@
 package model;
+
+import java.util.List;
+
 /**
  * 저장한 여행지 (=장바구니)
  * data
