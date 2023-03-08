@@ -13,22 +13,19 @@
 관광지 설명
 <br>
 
-<table>
+	<table>
 		<tr>
 			<td>지명</td>
 		</tr>
-		
-		
-		
-		<tr>
-			<td><%=rs.getString("region")%></td>
-		</tr>
-		
-		
-	</table>
 	
-<input type = "button" value="저장" onclick="javascript:window.location='spot.sp'"/>
+		<tr>
+			<td>${save.region}</td>
+		</tr>
+	</table>
 <input type="hidden" name="id" value='${login.id}' />
+<input type="hidden" name="id" value='${save.locationNum}' />
+
+<input type = "button" value="저장" onclick="javascript:window.location='spot.sp'"/>
 
 </body>
 </html>

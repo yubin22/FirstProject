@@ -26,7 +26,7 @@
 				
 				<table class="cart_table">
 					<tbody>
-						<c:forEach items="${cartInfo}">		<!-- 내 장바구니에 있는 기본 정보 가져옴. 장바구니에 저장된 개수만큼 -->
+						<c:forEach items="${save}" var="save">		<!-- 내 장바구니에 있는 기본 정보 가져옴. 장바구니에 저장된 개수만큼 -->
 							<tr>
 								<td class="td_width_1">
 									<input type="checkbox" class="individual_checkbox" checked="checked">
@@ -35,10 +35,11 @@
 								<!-- 이미지 -->
 								<td class="td_width_2"></td>
 								
-								<td class="td_width_3">${cartInfo.region}</td>
+								<td class="td_width_3">${save.region}</td>
 								
 								<td class="td_width_4 table_text_align_center delete_btn">
-									<button class = "delete_btn" data-cartid = "${cartId}">삭제</button>
+									<input type = "button" value="삭제" onclick="javascript:window.location='delete.sp'"/>
+									<!-- button class = "delete_btn" data-cartid = "${save}">삭제</button-->
 								</td>
 							</tr>
 						</c:forEach>
@@ -48,7 +49,7 @@
 				<!-- 삭제 form -->
 				<form action="delete.sp" method = "get" class = "delete_form">
 					<input type = "hidden" name = "cartId" class ="delete_cartId">
-					<input type = "hidden" name = "id" value="${login.id}">
+					<input type = "hidden" name = "id" value="${save.id}">
 				</form>
 				
 				<!-- 계획 만들기 -->
@@ -59,7 +60,7 @@
 </div>
 
 	<script type="text/javascript">
-	
+	/*
 		//체크 박스 전체선택에서
 		$(".all_check_input").on("click", function() {
 			
@@ -86,7 +87,7 @@
 			$(".delete_form").submit();
 			
 		});
-	
+	*/
 	</script>
 </body>
 </html>

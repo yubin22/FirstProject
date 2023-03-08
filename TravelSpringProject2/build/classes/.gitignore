@@ -1,4 +1,4 @@
-/log4j.properties
 /controller/
-/service/
+/log4j.properties
 /model/
+/service/

@@ -14,14 +14,14 @@ public class SaveLocationServiceImpl implements SaveLocationService {
 		this.saveLocationDAO = saveLocationDAO;
 	}
 
-	//목록, 회원 확인
+	//이미 저장된 것이 있는지 체크 (목록, 회원 확인)
 	@Override
 	public SaveLocationDTO checkSave(SaveLocationDTO save) {
 		SaveLocationDTO result = saveLocationDAO.checkSave(save);
 		return result;
 	}
 
-	//목록 추가 데이터
+	//목록 추가 데이터, 저장하기
 	@Override
 	public int addSave(SaveLocationDTO save) {
 		return saveLocationDAO.addSave(save);
@@ -35,7 +35,7 @@ public class SaveLocationServiceImpl implements SaveLocationService {
 
 	//장바구니 정보 반환
 	@Override
-	public Map<String, SaveLocationDTO> getSaveList(LoginDTO dto) {
+	public Map<String, SaveLocationDTO> getSaveList(SaveLocationDTO dto) {
 //		List<SaveLocationDTO> cart = saveLocationDAO.getSave(id);
 //		
 //		for(SaveLocationDTO dto : cart) {
@@ -48,6 +48,12 @@ public class SaveLocationServiceImpl implements SaveLocationService {
 //			dto.setImageList(imageList);
 //		}
 		return saveLocationDAO.getSave(dto); 	//cart
+	}
+
+	//info에서 사용할 region의 상세정보
+	@Override
+	public SaveLocationDTO getRegion(SaveLocationDTO dto) {
+		return saveLocationDAO.getRegion(dto);
 	}
 
 	

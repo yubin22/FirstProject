@@ -18,6 +18,13 @@ public class SaveLocationDAOImpl implements SaveLocationDAO {
 	public int addSave(SaveLocationDTO save) {
 		return (int) sqlMapClientTemplate.insert("addSave", save);
 	}
+	
+	//목록, 회원 확인
+	@Override
+	public SaveLocationDTO checkSave(SaveLocationDTO save) {
+		SaveLocationDTO result = (SaveLocationDTO) sqlMapClientTemplate.queryForObject("checkSave", save);
+		return result;
+	}
 
 	//목록 삭제 (성공 시 1, 실패 시 0)
 	@Override
@@ -27,21 +34,20 @@ public class SaveLocationDAOImpl implements SaveLocationDAO {
 
 	//장바구니 목록
 	@Override
-	public Map<String, SaveLocationDTO> getSave(LoginDTO dto) {
+	public Map<String, SaveLocationDTO> getSave(SaveLocationDTO dto) {
 		return sqlMapClientTemplate.queryForMap("getSave", dto, "region");
-	}
-
-	//목록, 회원 확인
-	@Override
-	public SaveLocationDTO checkSave(SaveLocationDTO save) {
-		SaveLocationDTO result = (SaveLocationDTO) sqlMapClientTemplate.queryForObject("checkSave", save);
-		return result;
 	}
 
 	//회원의 목록 정보 리스트
 	@Override
 	public List<SaveLocationDTO> getSaveList(String id) {
 		return sqlMapClientTemplate.queryForList("getSaveList",id);
+	}
+
+	//info에서 사용할 region의 상세정보
+	@Override
+	public SaveLocationDTO getRegion(SaveLocationDTO dto) {
+		return (SaveLocationDTO) sqlMapClientTemplate.queryForObject("getRegion", dto);
 	}
 	
 }

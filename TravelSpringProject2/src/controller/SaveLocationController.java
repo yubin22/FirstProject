@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -37,8 +38,11 @@ public class SaveLocationController {
 	
 	// 관광지 목록 페이지 (region이 보일 페이지)
 		@RequestMapping("/spotList.sp")
-		public String spotList(HttpSession session, HttpServletRequest request){
-			LoginDTO dto = (LoginDTO) session.getAttribute("login");
+		public String spotList(HttpSession session, HttpServletRequest request, SaveLocationDTO dto){
+			/*
+			 * save의 region값 -> select *
+			 */
+			//LoginDTO dto = (LoginDTO) session.getAttribute("login");
 			Map<String, SaveLocationDTO> result = service.getSaveList(dto);
 			Collection<SaveLocationDTO> list = (Collection<SaveLocationDTO>) result.values();
 			request.setAttribute("map", list);
@@ -55,15 +59,19 @@ public class SaveLocationController {
 		
 	//관광지 상세 페이지로 (특정 region이 보일 페이지)
 		@RequestMapping("/spotInfo.sp")
-		public String spotInfo(){
-				System.out.println("spotInfo");
-				return "spotInfo";
+		public String spotInfo(SaveLocationDTO dto, HttpServletRequest request){
+			SaveLocationDTO result = service.getRegion(dto);
+			request.setAttribute("save", result);
+			System.out.println("spotInfo :: "+ result);
+			return "spotInfo";
 		}
 	
 	//회원 관광지 상세 페이지
 		@RequestMapping("/spot.sp")
-		public String spot(){
-			System.out.println("spot");
+		public String spot(HttpServletRequest request, SaveLocationDTO dto){
+			SaveLocationDTO result = service.getRegion(dto);
+			request.setAttribute("save", result);
+			System.out.println("spot :: "+ result);
 			return "spot";
 		}
 		
@@ -71,18 +79,28 @@ public class SaveLocationController {
 	@RequestMapping("/saveAction.sp")
 	public String saveform(SaveLocationDTO save, Model model,LoginDTO login) {
 		
-		System.out.println("saveAction ::" + save);
 		/*
 		 * 1. dto.id, dto.locationNum -> is Valid
 		 * 2. select where id, locationNum을 통해 값이 존재 -> return 저장오류, 부재 -> insert 수행.
 		 * 
 		 */
 		//관광지 저장 후 (성공 시 1, 실패 시 0), 장바구니 등록
-		int result = service.addSave(save);
-		model.addAttribute("map", service.getSaveList(login));
-		System.out.println("addSave : "+ result);
+		//int result = service.addSave(save);
+		//model.addAttribute("map", service.getSaveList(login));
+		//System.out.println("addSave : "+ result);
 		
-		return "myList?id="+ save.getId();
+		System.out.println("saveAction ::" + save);
+		
+		SaveLocationDTO res = service.checkSave(save);
+		
+		if (res != null) {
+			return "redirect:/spot.sp";
+		}else {
+			int result = service.addSave(save);
+			model.addAttribute("save", service.addSave(save));
+			System.out.println("addSave : "+ result);
+			return "myList?id="+ save.getId();
+		}
 	}
 	
 	//로그인 후 내 페이지 -> 내 장바구니

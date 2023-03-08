@@ -20,27 +20,19 @@
 		<tr>
 			<td colspan='2'>지명</td>
 		</tr>
-<%
-	for(o : map){
-		dto = (model.SaveLocationDTO)o;
-%>
-				<tr>
-			<td><jsp:getProperty name="dto" property="id" /></td>
-			<td><jsp:getProperty name="dto" property="locationNum" /></td>
-			<td><jsp:getProperty name="dto" property="region" /></td>
-			<td><span>
-			
-			<input type="hidden" name="id" value='<jsp:getProperty name="dto" property="id" />' />
-			<input type="hidden" name="locationNum" value='<jsp:getProperty name="dto" property="locationNum" />' /><!-- '${dto.locationNum}' -->
-			<input type="hidden" name="region" value='<jsp:getProperty name="dto" property="region" />' />
-						
-			<input type = "button" value="상세 보기" onclick="javascript:window.location='spotInfo.sp'"/>
-			</span></td>
-		</tr>
-<%
-	}
-%>
-		
+
+		<c:forEach items="${map}" var = "map">
+			<tr>
+				<td>${map.region}</td>
+				<td>
+					<input type="hidden" name="locationNum" value='${map.locationNum}' /><!-- '<jsp:getProperty name="dto" property="locationNum" />' -->
+				</td>
+				
+				<td><span>
+					<input type = "button" value="상세 보기" onclick="javascript:window.location='spotInfo.sp?locationNum='"+{map.locationNum}/>
+				</span></td>
+			</tr>
+		</c:forEach>
 	</table>
 
 </body>
