@@ -35,7 +35,7 @@ public class SaveLocationController {
 	@Resource
 	private SaveLocationService service;
 	
-	//비회원 관광지 목록 페이지
+	// 관광지 목록 페이지 (region이 보일 페이지)
 		@RequestMapping("/spotList.sp")
 		public String spotList(HttpSession session, HttpServletRequest request){
 			LoginDTO dto = (LoginDTO) session.getAttribute("login");
@@ -46,14 +46,14 @@ public class SaveLocationController {
 			return "spotList";
 		}	
 		
-	//회원 관광지 목록 페이지
-		@RequestMapping("/spotListMember.sp")
-		public String spotListMember(){
-			System.out.println("spotListMember");
-			return "spotListMember";
-		}	
+//	//회원 관광지 목록 페이지
+//		@RequestMapping("/spotListMember.sp")
+//		public String spotListMember(){
+//			System.out.println("spotListMember");
+//			return "spotListMember";
+//		}	
 		
-	//비회원 관광지 상세 페이지로
+	//관광지 상세 페이지로 (특정 region이 보일 페이지)
 		@RequestMapping("/spotInfo.sp")
 		public String spotInfo(){
 				System.out.println("spotInfo");
@@ -71,7 +71,7 @@ public class SaveLocationController {
 	@RequestMapping("/saveAction.sp")
 	public String saveform(SaveLocationDTO save, Model model,LoginDTO login) {
 		
-		System.out.println("saveAction::" + save);
+		System.out.println("saveAction ::" + save);
 		/*
 		 * 1. dto.id, dto.locationNum -> is Valid
 		 * 2. select where id, locationNum을 통해 값이 존재 -> return 저장오류, 부재 -> insert 수행.

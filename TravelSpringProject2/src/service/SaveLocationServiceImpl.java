@@ -24,10 +24,6 @@ public class SaveLocationServiceImpl implements SaveLocationService {
 	//목록 추가 데이터
 	@Override
 	public int addSave(SaveLocationDTO save) {
-		
-		//장바구니 데이터 체크
-		SaveLocationDTO checkcart = saveLocationDAO.checkSave(save);
-		
 		return saveLocationDAO.addSave(save);
 	}
 

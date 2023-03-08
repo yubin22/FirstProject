@@ -16,6 +16,9 @@ public interface SaveLocationService {
 	public int deleteSave(int cartId);
 	
 	//회원의 목록 정보 리스트
-	public Map<String, SaveLocationDTO> getSaveList(LoginDTO dto); 
+	public Map<String, SaveLocationDTO> getSaveList(LoginDTO dto);
+	
+	//특정 region을 가져와야함
+	//public SaveLocationDTO getSave(SaveLocationDTO dto);
 
 }
