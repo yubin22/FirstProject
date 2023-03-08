@@ -11,10 +11,17 @@ import java.util.List;
 public class SaveLocationDTO {
 
 	private String id;
-	private int locationNum;
+	private int locationNum; //bookid
 	
 	//join table location 
-	private String region; 	//여행지명 (장바구니 상품명같은 것.)
+	private String region; 	//여행지명 (장바구니 상품명같은 것.) bookname
+	
+	//장바구니 부여
+	private int cartId;
+	
+	//이미지
+	private List imageList;
+	
 
 	public String getId() {
 		return id;
@@ -26,6 +33,14 @@ public class SaveLocationDTO {
 
 	public String getRegion() {
 		return region;
+	}
+
+	public int getCartId() {
+		return cartId;
+	}
+
+	public List getImageList() {
+		return imageList;
 	}
 
 	public void setId(String id) {
@@ -40,9 +55,18 @@ public class SaveLocationDTO {
 		this.region = region;
 	}
 
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}
+
+	public void setImageList(List imageList) {
+		this.imageList = imageList;
+	}
+
 	@Override
 	public String toString() {
-		return "SaveLocationDTO [id=" + id + ", locationNum=" + locationNum + ", region=" + region + "]";
+		return "SaveLocationDTO [id=" + id + ", locationNum=" + locationNum + ", region=" + region + ", cartId="
+				+ cartId + "]";
 	}
 
 	//id만

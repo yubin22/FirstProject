@@ -14,7 +14,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/anyware/eclipse-workspace/LoginSpringProject/WebContent/WEB-INF/lib/org.springframework.web-3.0.7.RELEASE.jar"/>
-	<classpathentry kind="src" path="/TravelChartProject"/>
 	<classpathentry kind="lib" path="C:/java/tomcat7.0/lib/annotations-api.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="https://docs.oracle.com/javaee/6/api/"/>

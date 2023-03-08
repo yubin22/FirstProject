@@ -21,14 +21,14 @@ public class SaveLocationDAOImpl implements SaveLocationDAO {
 
 	//목록 삭제 (성공 시 1, 실패 시 0)
 	@Override
-	public int deleteSave(SaveLocationDTO save) {
-		return sqlMapClientTemplate.delete("deleteSave", save);
+	public int deleteSave(int cartId) {
+		return sqlMapClientTemplate.delete("deleteSave");
 	}
 
-	//목록
+	//장바구니 목록
 	@Override
-	public List<SaveLocationDTO> getSave(HashMap map) {
-		return sqlMapClientTemplate.queryForList("getSave",map);
+	public List<SaveLocationDTO> getSave(String id) {
+		return sqlMapClientTemplate.queryForList(id);
 	}
 
 	//목록, 회원 확인
@@ -43,5 +43,5 @@ public class SaveLocationDAOImpl implements SaveLocationDAO {
 	public List<SaveLocationDTO> getSaveList(String id) {
 		return sqlMapClientTemplate.queryForList("getSaveList",id);
 	}
-
+	
 }

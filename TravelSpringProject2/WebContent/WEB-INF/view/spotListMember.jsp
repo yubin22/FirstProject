@@ -36,7 +36,7 @@
 		rs = stmt.executeQuery(sql);
 %>
 <body>
-<!-- 비회원용-->
+<!-- 회원용-->
 관광지 목록
 <br>
 <table border="1">
@@ -52,7 +52,7 @@
 		<tr>
 			<td><%=rs.getString("region")%></td>
 			<td><span>
-			<input type = "button" value="상세 보기" onclick="javascript:window.location='spotInfo.sp'"/>
+			<input type = "button" value="상세 보기" onclick="javascript:window.location='spot.sp'"/>
 			</span></td>
 		</tr>
 		

@@ -16,6 +16,7 @@
  
  <resultMap class="save" id="saveResult"> <!-- queryForMap,List 사용위해 -->
  
+ 	<result property="cartId" column="cart_id" /> 
 	<result property="id" column="id" />  	 	
 	<result property="locationNum" column="location_num" />    	 	
 	<result property="region" column="region" />    	 
@@ -25,12 +26,12 @@
  <!-- 목록 추가 -->
  <insert id="addSave" parameterClass="save" >
  	insert into saved_location (id, location_num)
- 	values(#id#,#locationNum#)
+ 	values(#id#, #locationNum#)
  </insert> 
  
 <!-- 목록 -->
- <select id="getSave" parameterClass="hashmap" resultMap="saveResult">
- 	select s.id, s.location_num, l.location_num, l.region
+ <select id="getSave" parameterClass="String" resultClass="save">
+ 	select s.cart_id, s.id, s.location_num, l.region
 	from saved_location s
 	join location l
 	on (s.location_num = l.location_num)
@@ -38,8 +39,8 @@
  </select> 
  
  <!-- 목록 삭제 -->
- <delete id="deleteSave" parameterClass="save">
- delete from saved_locationr where location_num = #locationNum#
+ <delete id="deleteSave" parameterClass="int">
+ 	delete from saved_locationr where cart_id= #cartId#
  </delete>
  
  <!-- 목록, 회원 확인 -->

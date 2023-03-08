@@ -27,21 +27,35 @@ public class SaveLocationServiceImpl implements SaveLocationService {
 	//목록 추가 데이터
 	@Override
 	public int addSave(SaveLocationDTO save) {
+		
 		//장바구니 데이터 체크
 		SaveLocationDTO checkcart = saveLocationDAO.checkSave(save);
+		
 		return saveLocationDAO.addSave(save);
 	}
 
 	//목록 삭제 (성공 시 1, 실패 시 0)
 	@Override
-	public int deleteSave(SaveLocationDTO save) {
-		return saveLocationDAO.deleteSave(save);
+	public int deleteSave(int cartId) {
+		return saveLocationDAO.deleteSave(cartId);
 	}
 
 	//장바구니 정보 반환
 	@Override
 	public List<SaveLocationDTO> getSaveList(String id) {
-		return saveLocationDAO.getSaveList(id); 	//saveLocationDAO.getSaveList(id)
+//		List<SaveLocationDTO> cart = saveLocationDAO.getSave(id);
+//		
+//		for(SaveLocationDTO dto : cart) {
+//			
+//			/* 이미지 정보 얻기 */
+//			int locationNum = dto.getLocationNum();
+//			
+//			List<SaveLocationDTO> imageList = null;
+//			
+//			dto.setImageList(imageList);
+//		}
+		return saveLocationDAO.getSave(id); 	//cart
 	}
 
+	
 }

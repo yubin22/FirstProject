@@ -5,35 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>장바구니</title>
-<script type="text/javascript">
-
-//체크 박스 전체선택에서
-$(".all_check_input").on("click", function() {
-	if($("all_check_input").prop("checked")){
-		
-		//개별 전체 체크
-		$(".individual_checkbox").attr("checked", true);
-		
-	}else{
-		
-		//전체 체크 해제
-		$(".individual_checkbox").attr("checked", false);
-	}
-});
-
-//장바구니 삭제
-$(".delete_btn").on("click", function(e) {
-	
-	//기본 동작 x
-	e.preventDefault();
-	//id변수 선언 -> 해당 객체의 locationNum 대입
-	const id = ${save.locationNum};
-	$(."delete_id").val(id);
-	$(".delete_form").submit();
-	
-});
-
-</script>
 </head>
 <body>
 <div class="section">
@@ -41,7 +12,6 @@ $(".delete_btn").on("click", function(e) {
 				<div class = "all_check">
 					<input type="checkbox" class = "all_check_input" checked="checked"><span class = "all_check_span">전체선택</span>
 				</div>
-				<br>
 				
 				<table class="subject_table">
 					<tbody>
@@ -56,7 +26,7 @@ $(".delete_btn").on("click", function(e) {
 				
 				<table class="cart_table">
 					<tbody>
-						<c:forEach items="${save}">		<!-- 내 장바구니에 있는 기본 정보 가져옴. 장바구니에 저장된 개수만큼 -->
+						<c:forEach items="${cartInfo}">		<!-- 내 장바구니에 있는 기본 정보 가져옴. 장바구니에 저장된 개수만큼 -->
 							<tr>
 								<td class="td_width_1">
 									<input type="checkbox" class="individual_checkbox" checked="checked">
@@ -65,10 +35,10 @@ $(".delete_btn").on("click", function(e) {
 								<!-- 이미지 -->
 								<td class="td_width_2"></td>
 								
-								<td class="td_width_3">${save.region}</td>
+								<td class="td_width_3">${cartInfo.region}</td>
 								
 								<td class="td_width_4 table_text_align_center delete_btn">
-									<button class = "delete_btn">삭제</button>
+									<button class = "delete_btn" data-cartid = "${cartId}">삭제</button>
 								</td>
 							</tr>
 						</c:forEach>
@@ -77,7 +47,7 @@ $(".delete_btn").on("click", function(e) {
 				
 				<!-- 삭제 form -->
 				<form action="delete.sp" method = "get" class = "delete_form">
-					<input type = "hidden" name = "locationNum" class ="delete_id">
+					<input type = "hidden" name = "cartId" class ="delete_cartId">
 					<input type = "hidden" name = "id" value="${login.id}">
 				</form>
 				
@@ -87,5 +57,36 @@ $(".delete_btn").on("click", function(e) {
 				<!-- 목록 가기 -->
 				<input type = "button" value="여행지 추가하기" onclick="javascript:window.location='spotList.sp'"/>
 </div>
+
+	<script type="text/javascript">
+	
+		//체크 박스 전체선택에서
+		$(".all_check_input").on("click", function() {
+			
+			if($("all_check_input").prop("checked")){
+				
+				//개별 전체 체크
+				$(".individual_checkbox").attr("checked", true);
+				
+			}else{
+				
+				//전체 체크 해제
+				$(".individual_checkbox").attr("checked", false);
+			}
+		});
+		
+		//장바구니 삭제
+		$(".delete_btn").on("click", function(e) {
+			
+			//기본 동작 x
+			e.preventDefault();
+			//id변수 선언 -> 해당 객체의 locationNum 대입
+			const id = ${save.locationNum};
+			$(".delete_cartId").val(cartId);
+			$(".delete_form").submit();
+			
+		});
+	
+	</script>
 </body>
 </html>

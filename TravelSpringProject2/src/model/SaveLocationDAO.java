@@ -10,11 +10,12 @@ public interface SaveLocationDAO {
 	
 	//목록 추가insert (성공 시 1, 실패 시 0)
 	public int addSave(SaveLocationDTO save);
+	
 	//목록 삭제 (성공 시 1, 실패 시 0)
-	public int deleteSave(SaveLocationDTO save);
+	public int deleteSave(int cartId);
 	
 	//목록 (데이터를 리스트로 받아옴)
-	public List<SaveLocationDTO> getSave(HashMap map);
+	public List<SaveLocationDTO> getSave(String id);
 	
 	//목록, 회원 확인 (장소, 회원 넘겨 값이 있는지 확인)
 	public SaveLocationDTO checkSave(SaveLocationDTO save);

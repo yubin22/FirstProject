@@ -12,7 +12,9 @@ public interface SaveLocationService {
 	SaveLocationDTO checkSave(SaveLocationDTO save);
 
 	public int addSave(SaveLocationDTO save);
-	public int deleteSave(SaveLocationDTO save);
+	
+	//장바구니 삭제
+	public int deleteSave(int cartId);
 	
 	//회원의 목록 정보 리스트
 	public List<SaveLocationDTO> getSaveList(String id); 
