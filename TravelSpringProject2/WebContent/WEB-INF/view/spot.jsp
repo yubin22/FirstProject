@@ -19,7 +19,7 @@
 	String user = "c##scott";
 	String password = "tiger";
 	String url = "jdbc:oracle:thin:@localhost:1521:XE";
-	String sql = "select region from location where location_num=1";
+	String sql = "select * from location where location_num=1";
 	String region="";
 %>
 <!DOCTYPE html>

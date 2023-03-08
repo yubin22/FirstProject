@@ -1,7 +1,7 @@
 package model;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
@@ -27,8 +27,8 @@ public class SaveLocationDAOImpl implements SaveLocationDAO {
 
 	//장바구니 목록
 	@Override
-	public List<SaveLocationDTO> getSave(String id) {
-		return sqlMapClientTemplate.queryForList(id);
+	public Map<String, SaveLocationDTO> getSave(LoginDTO dto) {
+		return sqlMapClientTemplate.queryForMap("getSave", dto, "region");
 	}
 
 	//목록, 회원 확인

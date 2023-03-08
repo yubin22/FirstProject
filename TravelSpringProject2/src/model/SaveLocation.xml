@@ -12,6 +12,7 @@
  
  
  <!-- typeAlias : 해당 클래스에 별명 지정  -->
+ <typeAlias alias="login" type="model.LoginDTO" />
  <typeAlias alias="save" type="model.SaveLocationDTO" />
  
  <resultMap class="save" id="saveResult"> <!-- queryForMap,List 사용위해 -->
@@ -30,7 +31,7 @@
  </insert> 
  
 <!-- 목록 -->
- <select id="getSave" parameterClass="String" resultClass="save">
+ <select id="getSave" parameterClass="login" resultMap="saveResult">
  	select s.cart_id, s.id, s.location_num, l.region
 	from saved_location s
 	join location l

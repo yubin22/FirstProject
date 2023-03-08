@@ -1,9 +1,6 @@
 package service;
 
-import java.util.HashMap;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Map;
 
 import model.LoginDTO;
 import model.SaveLocationDAO;
@@ -42,7 +39,7 @@ public class SaveLocationServiceImpl implements SaveLocationService {
 
 	//장바구니 정보 반환
 	@Override
-	public List<SaveLocationDTO> getSaveList(String id) {
+	public Map<String, SaveLocationDTO> getSaveList(LoginDTO dto) {
 //		List<SaveLocationDTO> cart = saveLocationDAO.getSave(id);
 //		
 //		for(SaveLocationDTO dto : cart) {
@@ -54,7 +51,7 @@ public class SaveLocationServiceImpl implements SaveLocationService {
 //			
 //			dto.setImageList(imageList);
 //		}
-		return saveLocationDAO.getSave(id); 	//cart
+		return saveLocationDAO.getSave(dto); 	//cart
 	}
 
 	

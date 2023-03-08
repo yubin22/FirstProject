@@ -1,10 +1,6 @@
 package model;
-/**
- * Mapper
- */
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface SaveLocationDAO { 
 	
@@ -15,7 +11,7 @@ public interface SaveLocationDAO {
 	public int deleteSave(int cartId);
 	
 	//목록 (데이터를 리스트로 받아옴)
-	public List<SaveLocationDTO> getSave(String id);
+	public Map<String, SaveLocationDTO> getSave(LoginDTO dto);
 	
 	//목록, 회원 확인 (장소, 회원 넘겨 값이 있는지 확인)
 	public SaveLocationDTO checkSave(SaveLocationDTO save);

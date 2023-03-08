@@ -1,9 +1,8 @@
 package service;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
-import model.SaveLocationDAO;
+import model.LoginDTO;
 import model.SaveLocationDTO;
 
 //ServiceImpl에 Override
@@ -17,6 +16,6 @@ public interface SaveLocationService {
 	public int deleteSave(int cartId);
 	
 	//회원의 목록 정보 리스트
-	public List<SaveLocationDTO> getSaveList(String id); 
+	public Map<String, SaveLocationDTO> getSaveList(LoginDTO dto); 
 
 }
