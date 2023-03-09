@@ -17,7 +17,7 @@ public interface SaveLocationDAO {
 	public SaveLocationDTO checkSave(SaveLocationDTO save);
 	
 	//회원의 목록 정보 리스트
-	public List<SaveLocationDTO> getSaveList(String id);
+	public List<SaveLocationDTO> getSaveList(SaveLocationDTO dto);
 
 	//info에서 사용할 region의 상세정보
 	public SaveLocationDTO getRegion(SaveLocationDTO dto);

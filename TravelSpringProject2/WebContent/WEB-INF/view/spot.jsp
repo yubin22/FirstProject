@@ -2,10 +2,6 @@
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
-<%@ page import="java.sql.DriverManager"%>
-<%@ page import="java.sql.Connection"%>
-<%@ page import="java.sql.Statement"%>
-<%@ page import="java.sql.ResultSet"%>
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -38,7 +34,7 @@
 		
 		
 		<tr>
-			<td><%=region%></td>
+			<td>${save.region}</td>
 		</tr>
 		
 		
@@ -52,7 +48,7 @@
 	//서버로 전송 할 데이터
 	const form = {
 		id : '${login.id}',
-		region : '<%=region%>'
+		region : '${save.region}'
 	};
 	
 	//저장버튼 누르면

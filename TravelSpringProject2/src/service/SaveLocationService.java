@@ -1,5 +1,6 @@
 package service;
 
+import java.util.List;
 import java.util.Map;
 
 import model.LoginDTO;
@@ -19,6 +20,9 @@ public interface SaveLocationService {
 	
 	// 여행지 리스트에 사용.
 	public Map<String, SaveLocationDTO> getSaveList(SaveLocationDTO dto);
+	
+	// 내 여행지 리스트에 사용.
+	public List<SaveLocationDTO> getMyList(SaveLocationDTO dto);
 	
 	//특정 region을 가져와야함
 	public SaveLocationDTO getRegion(SaveLocationDTO dto);

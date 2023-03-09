@@ -3,6 +3,7 @@ package controller;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -96,18 +97,20 @@ public class SaveLocationController {
 		if (res != null) {
 			return "redirect:/spot.sp";
 		}else {
-			int result = service.addSave(save);
-			model.addAttribute("save", service.addSave(save));
-			System.out.println("addSave : "+ result);
-			return "myList?id="+ save.getId();
+			service.addSave(save);
+			//model.addAttribute("save", service.addSave(save));
+			System.out.println("addSave : "+ save);
+			return "myList.sp";
 		}
 	}
 	
 	//로그인 후 내 페이지 -> 내 장바구니
 		@RequestMapping("/myList.sp")
-		public String add(){
-			System.out.println("myList");
-			return "myList";
+		public String add(SaveLocationDTO dto, HttpServletRequest request){
+			List<SaveLocationDTO> result = service.getMyList(dto);
+			request.setAttribute("save", result);
+			System.out.println("myList :: "+ result);
+			return "myList"; 		// ?id="+ save.getId();
 		}
 	
 	//계획세우기
@@ -133,6 +136,3 @@ public class SaveLocationController {
 		}
 
 }
-
-
-

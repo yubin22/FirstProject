@@ -40,8 +40,8 @@ public class SaveLocationDAOImpl implements SaveLocationDAO {
 
 	//회원의 목록 정보 리스트
 	@Override
-	public List<SaveLocationDTO> getSaveList(String id) {
-		return sqlMapClientTemplate.queryForList("getSaveList",id);
+	public List<SaveLocationDTO> getSaveList(SaveLocationDTO dto) {
+		return sqlMapClientTemplate.queryForList("getSaveList",dto);
 	}
 
 	//info에서 사용할 region의 상세정보

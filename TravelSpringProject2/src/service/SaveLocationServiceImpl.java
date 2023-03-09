@@ -1,5 +1,6 @@
 package service;
 
+import java.util.List;
 import java.util.Map;
 
 import model.LoginDTO;
@@ -55,6 +56,11 @@ public class SaveLocationServiceImpl implements SaveLocationService {
 	public SaveLocationDTO getRegion(SaveLocationDTO dto) {
 		return saveLocationDAO.getRegion(dto);
 	}
-
 	
+	//내 장바구니 정보 반환 String id
+	@Override
+	public List<SaveLocationDTO> getMyList(SaveLocationDTO dto) {
+		return saveLocationDAO.getSaveList(dto);
+	}
+
 }
