@@ -26,13 +26,13 @@
  
  <!-- 목록 추가 -->
  <insert id="addSave" parameterClass="save" >
- 	insert into saved_location (cart_id, id, location_num)
- 	values(#cart_id#, #id#, #locationNum#)
+ 	insert into saved_location (id, location_num)
+ 	values(#id#, #locationNum#)
  </insert> 
  
 <!-- 여행지 목록 -->
  <select id="getSave" parameterClass="save" resultMap="saveResult">
- 	select s.cart_id, s.id, s.location_num, l.region
+ 	select s.id, s.location_num, l.region
 	from saved_location s
 	join location l
 	on (s.location_num = l.location_num)
@@ -40,7 +40,7 @@
  
  <!-- 내 여행지 목록 -->
  <select id="getSaveList" parameterClass="save" resultClass="save">
- 	select s.cart_id, s.id, s.location_num, l.region
+ 	select s.id, s.location_num, l.region
 	from saved_location s
 	join location l
 	on (s.location_num = l.location_num)
@@ -49,7 +49,7 @@
  
  <!-- 목록 삭제 -->
  <delete id="deleteSave" parameterClass="int">
- 	delete from saved_locationr where cart_id= #cartId#
+ 	delete from saved_locationr where id= #id#
  </delete>
  
  <!-- 이미 저장된 것이 있는지 체크 (목록, 회원 확인) -->
