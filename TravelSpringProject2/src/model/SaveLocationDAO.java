@@ -11,7 +11,7 @@ public interface SaveLocationDAO {
 	public int deleteSave(int cartId);
 	
 	//목록 (데이터를 리스트로 받아옴) /여행지 리스트
-	public Map<String, SaveLocationDTO> getSave(SaveLocationDTO dto);
+	public List<SaveLocationDTO> getSave(SaveLocationDTO dto);
 	
 	//목록, 회원 확인 (장소, 회원 넘겨 값이 있는지 확인)
 	public SaveLocationDTO checkSave(SaveLocationDTO save);
@@ -19,6 +19,6 @@ public interface SaveLocationDAO {
 	//회원의 목록 정보 리스트
 	public List<SaveLocationDTO> getSaveList(SaveLocationDTO dto);
 
-	//info에서 사용할 region의 상세정보
+	//info에서 사용할 locationName의 상세정보
 	public SaveLocationDTO getRegion(SaveLocationDTO dto);
 }

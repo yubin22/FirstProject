@@ -19,12 +19,12 @@ public interface SaveLocationService {
 	public int deleteSave(int cartId);
 	
 	// 여행지 리스트에 사용.
-	public Map<String, SaveLocationDTO> getSaveList(SaveLocationDTO dto);
+	public List<SaveLocationDTO> getSaveList(SaveLocationDTO dto);
 	
 	// 내 여행지 리스트에 사용.
 	public List<SaveLocationDTO> getMyList(SaveLocationDTO dto);
 	
-	//특정 region을 가져와야함
+	//특정 locationName을 가져와야함
 	public SaveLocationDTO getRegion(SaveLocationDTO dto);
 
 }

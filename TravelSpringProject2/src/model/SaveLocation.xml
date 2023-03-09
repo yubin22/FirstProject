@@ -17,30 +17,27 @@
  
  <resultMap class="save" id="saveResult"> <!-- queryForMap,List 사용위해 -->
  
- 	<result property="cartId" column="cart_id" /> 
 	<result property="id" column="id" />  	 	
 	<result property="locationNum" column="location_num" />    	 	
-	<result property="region" column="region" />    	 
+	<result property="locationName" column="location_name" />    	 
 	
  </resultMap>
  
- <!-- 목록 추가 -->
+ <!-- 목록 추가 (장바구니에 insert)-->
  <insert id="addSave" parameterClass="save" >
  	insert into saved_location (id, location_num)
  	values(#id#, #locationNum#)
  </insert> 
  
-<!-- 여행지 목록 -->
- <select id="getSave" parameterClass="save" resultMap="saveResult">
- 	select s.id, s.location_num, l.region
-	from saved_location s
-	join location l
-	on (s.location_num = l.location_num)
+<!-- 전체 여행지 목록 -->
+ <select id="getSave" resultClass="save">
+ 	select location_num as locationnum, location_name as locationname
+	from location 
  </select> 
  
- <!-- 내 여행지 목록 -->
+ <!-- id별 여행지 목록 -->
  <select id="getSaveList" parameterClass="save" resultClass="save">
- 	select s.id, s.location_num, l.region
+ 	select s.id, s.location_num as locationnum, l.location_name as locationname
 	from saved_location s
 	join location l
 	on (s.location_num = l.location_num)
@@ -49,7 +46,7 @@
  
  <!-- 목록 삭제 -->
  <delete id="deleteSave" parameterClass="int">
- 	delete from saved_locationr where id= #id#
+ 	delete from saved_location where location_num= #locationNum#
  </delete>
  
  <!-- 이미 저장된 것이 있는지 체크 (목록, 회원 확인) -->
@@ -57,9 +54,11 @@
  	select location_num from saved_location where id = #id# and location_num = #locationNum#
  </select> 
  
-  <!-- region의 상세정보 확인 -->
+  <!-- locationName의 상세정보 확인 -->
  <select id="getRegion" parameterClass="save" resultClass="save">
- 	select location_num, region from location where location_num = #locationNum#
+ 	select location_num as locationnum, location_name as locationname 
+ 		from location 
+ 		where location_num = #locationNum#
  </select> 
  
 </sqlMap>

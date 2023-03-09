@@ -34,7 +34,7 @@
 		
 		
 		<tr>
-			<td>${save.region}</td>
+			<td>${save.locationName}</td>
 		</tr>
 		
 		
@@ -48,7 +48,7 @@
 	//서버로 전송 할 데이터
 	const form = {
 		id : '${login.id}',
-		region : '${save.region}'
+		locationName : '${save.locationName}'
 	};
 	
 	//저장버튼 누르면

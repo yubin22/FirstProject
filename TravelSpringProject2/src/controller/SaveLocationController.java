@@ -37,17 +37,16 @@ public class SaveLocationController {
 	@Resource
 	private SaveLocationService service;
 	
-	// 관광지 목록 페이지 (region이 보일 페이지)
+	// 전체 여행지 목록 페이지 (locationName이 보일 페이지)
 		@RequestMapping("/spotList.sp")
 		public String spotList(HttpSession session, HttpServletRequest request, SaveLocationDTO dto){
 			/*
-			 * save의 region값 -> select *
+			 * select num, name dto에 담김
 			 */
 			//LoginDTO dto = (LoginDTO) session.getAttribute("login");
-			Map<String, SaveLocationDTO> result = service.getSaveList(dto);
-			Collection<SaveLocationDTO> list = (Collection<SaveLocationDTO>) result.values();
-			request.setAttribute("map", list);
-			System.out.println("spotList::"+((HashMap<String, SaveLocationDTO>) result).values());
+			List< SaveLocationDTO> result = service.getSaveList(dto);
+			System.out.println("spotList::"+result);
+			request.setAttribute("list", result);
 			return "spotList";
 		}	
 		
@@ -58,10 +57,17 @@ public class SaveLocationController {
 //			return "spotListMember";
 //		}	
 		
-	//관광지 상세 페이지로 (특정 region이 보일 페이지)
+	//관광지 상세 페이지로 (특정 locationName이 보일 페이지)
 		@RequestMapping("/spotInfo.sp")
-		public String spotInfo(SaveLocationDTO dto, HttpServletRequest request){
-			SaveLocationDTO result = service.getRegion(dto);
+		public String spotInfo(SaveLocationDTO dto, HttpServletRequest request, HttpSession session){
+			String id = ( (LoginDTO) session.getAttribute("login")).getId();
+			dto.setId(id);
+			List<SaveLocationDTO> result = service.getMyList(dto);
+			if (result.contains(dto)) {
+				//중복 존재
+			} else {
+				//중복 없어
+			}
 			request.setAttribute("save", result);
 			System.out.println("spotInfo :: "+ result);
 			return "spotInfo";
@@ -124,7 +130,7 @@ public class SaveLocationController {
 		@RequestMapping("/delete.sp")
 		public String delete(SaveLocationDTO save) {
 			
-			int result = service.deleteSave(save.getCartId());		//save.getId()
+			int result = service.deleteSave(save.getLocationNum());		//save.getId()
 			
 			//장바구니 페이지로
 			String res = "redirect:/myList.sp?id="+ save.getId();

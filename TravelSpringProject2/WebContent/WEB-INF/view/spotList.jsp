@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <jsp:useBean id="dto" class="model.SaveLocationDTO"  scope="request" />
-<jsp:useBean id="map" type="java.util.Collection"  scope="request" />
+<jsp:useBean id="list" type="java.util.Collection"  scope="request" />
 
 <!DOCTYPE html>
 <html>
@@ -21,15 +21,15 @@
 			<td colspan='2'>지명</td>
 		</tr>
 
-		<c:forEach items="${map}" var = "map">
+		<c:forEach items="${list}" var = "list">
 			<tr>
-				<td>${map.region}</td>
+				<td>${list.locationName}</td>
 				<td>
-					<input type="hidden" name="locationNum" value='${map.locationNum}' /><!-- '<jsp:getProperty name="dto" property="locationNum" />' -->
+					<input type="hidden" name="locationNum" value='${list.locationNum}' /><!-- '<jsp:getProperty name="dto" property="locationNum" />' -->
 				</td>
 				
 				<td><span>
-					<input type = "button" value="상세 보기" onclick="javascript:window.location='spotInfo.sp?locationNum='"+{map.locationNum}/>
+					<input type = "button" value="상세 보기" onclick="javascript:window.location='spotInfo.sp?locationNum=${list.locationNum}'"/>
 				</span></td>
 			</tr>
 		</c:forEach>

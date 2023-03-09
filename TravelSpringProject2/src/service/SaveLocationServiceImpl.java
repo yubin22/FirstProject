@@ -1,9 +1,7 @@
 package service;
 
 import java.util.List;
-import java.util.Map;
 
-import model.LoginDTO;
 import model.SaveLocationDAO;
 import model.SaveLocationDTO;
 
@@ -36,7 +34,7 @@ public class SaveLocationServiceImpl implements SaveLocationService {
 
 	//장바구니 정보 반환
 	@Override
-	public Map<String, SaveLocationDTO> getSaveList(SaveLocationDTO dto) {
+	public List<SaveLocationDTO> getSaveList(SaveLocationDTO dto) {
 //		List<SaveLocationDTO> cart = saveLocationDAO.getSave(id);
 //		
 //		for(SaveLocationDTO dto : cart) {
@@ -51,7 +49,7 @@ public class SaveLocationServiceImpl implements SaveLocationService {
 		return saveLocationDAO.getSave(dto); 	//cart
 	}
 
-	//info에서 사용할 region의 상세정보
+	//info에서 사용할 locationName의 상세정보
 	@Override
 	public SaveLocationDTO getRegion(SaveLocationDTO dto) {
 		return saveLocationDAO.getRegion(dto);

@@ -3,6 +3,9 @@ package model;
 import java.util.List;
 
 /**
+ * 여행지
+ * field : id, name, imageList, contents
+ * 
  * 저장한 여행지 (=장바구니)
  * data
  * @author anyware
@@ -14,10 +17,7 @@ public class SaveLocationDTO {
 	private int locationNum; //bookid
 	
 	//join table location 
-	private String region; 	//여행지명 (장바구니 상품명같은 것.) bookname
-	
-	//장바구니 부여
-	private int cartId;
+	private String locationName; 	//여행지명 (장바구니 상품명같은 것.) bookname
 	
 	//이미지
 	private List imageList;
@@ -29,14 +29,6 @@ public class SaveLocationDTO {
 
 	public int getLocationNum() {
 		return locationNum;
-	}
-
-	public String getRegion() {
-		return region;
-	}
-
-	public int getCartId() {
-		return cartId;
 	}
 
 	public List getImageList() {
@@ -51,22 +43,22 @@ public class SaveLocationDTO {
 		this.locationNum = locationNum;
 	}
 
-	public void setRegion(String region) {
-		this.region = region;
-	}
-
-	public void setCartId(int cartId) {
-		this.cartId = cartId;
-	}
-
 	public void setImageList(List imageList) {
 		this.imageList = imageList;
+	}
+	
+	public String getLocationName() {
+		return locationName;
+	}
+
+	public void setLocationName(String locationName) {
+		this.locationName = locationName;
 	}
 
 	@Override
 	public String toString() {
-		return "SaveLocationDTO [id=" + id + ", locationNum=" + locationNum + ", region=" + region + ", cartId="
-				+ cartId + "]";
+		return "SaveLocationDTO [id=" + id + ", locationNum=" + locationNum + ", locationName=" + locationName
+				+ ", imageList=" + imageList + "]";
 	}
 
 	//id만

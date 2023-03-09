@@ -37,7 +37,7 @@
 								<!-- 이미지 -->
 								<td class="td_width_2"></td>
 								
-								<td class="td_width_3">${save.region}</td>
+								<td class="td_width_3">${save.locationName}</td>
 								
 								<td class="td_width_4 table_text_align_center delete_btn">
 									<input type = "button" value="삭제" onclick="javascript:window.location='delete.sp'"/>

@@ -19,7 +19,7 @@
 		</tr>
 	
 		<tr>
-			<td>${save.region}</td>
+			<td>${save.locationName}</td>
 		</tr>
 	</table>
 <input type="hidden" name="id" value='${login.id}' />
