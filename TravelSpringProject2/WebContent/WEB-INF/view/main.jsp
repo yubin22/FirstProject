@@ -23,10 +23,10 @@
 	<br>
 	
 <!-- 로그인 후, 여행지 저장 리스트로  -->
-	<input type="button" value="저장한 여행지" onclick="javascript:window.location='myList.sp'" />
+	<input type="button" value="저장한 여행지" onclick="javascript:window.location='myList.sp?id=${login.id}'" />
 	
-<!-- 로그인 후, 여행지 저장 리스트로  -->
-	<input type="button" value="여행지 목록" onclick="javascript:window.location='spotList.sp'" />
+<!-- 로그인 후, 다시 여행지 페이지로  -->
+	<input type="button" value="여행지" onclick="javascript:window.location='spotList.sp'" />
 	
 <!-- 로그아웃 -->
 <input type="button" value="로그아웃" onclick="logout()" />

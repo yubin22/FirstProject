@@ -30,6 +30,11 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 	@Override
+	public int deleteMyList(LoginDTO dto) {
+		return loginDAO.deleteMyList(dto);
+	}
+	
+	@Override
 	public int deleteLogin(LoginDTO dto) {
 		return loginDAO.deleteLogin(dto);
 	}

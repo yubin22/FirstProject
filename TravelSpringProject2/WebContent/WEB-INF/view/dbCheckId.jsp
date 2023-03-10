@@ -19,7 +19,7 @@
 		}else {
 			// 중복체크 결과인 idCheck 값을 전달
 			openJoinfrm.idDuplication.value="idCheck";
-			openJoinfrm.id.value=${param.id};
+			openJoinfrm.id.value='${param.id}';
 			//openJoinfrm.checkId.disabled=true;
 			openJoinfrm.checkId.style.opacity=0.6;
 			openJoinfrm.checkId.style.cursor="default";

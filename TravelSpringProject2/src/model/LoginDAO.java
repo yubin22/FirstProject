@@ -7,6 +7,8 @@ public interface LoginDAO { //저장된 걸 읽어만 옴.
 	
 	public void insertLogin(LoginDTO dto); //쓰기
 	public int updateLogin(LoginDTO dto); //수정
+	
+	public int deleteMyList(LoginDTO dto); //내 여행지 삭제
 	public int deleteLogin(LoginDTO dto); //삭제
 
 	//아이디 중복 체크

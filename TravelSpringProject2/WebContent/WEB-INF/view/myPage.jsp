@@ -24,5 +24,7 @@
 <input type="button" value="회원 정보 수정" onclick="javascript:window.location='update.sp'">
 
 <input type="button" value="로그아웃" onclick="logout()" />
+
+<input type="button" value="메인 페이지" onclick="javascript:window.location='main.sp'">
 </body>
 </html>

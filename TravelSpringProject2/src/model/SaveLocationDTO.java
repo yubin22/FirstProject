@@ -14,14 +14,26 @@ import java.util.List;
 public class SaveLocationDTO {
 
 	private String id;
-	private int locationNum; //bookid
+	private int locationNum;
 	
 	//join table location 
-	private String locationName; 	//여행지명 (장바구니 상품명같은 것.) bookname
+	private String locationName; 	//여행지명 (장바구니 상품명같은 것.) 
 	
 	//이미지
-	private List imageList;
+	private String picture;
+	//private List imageList;
 	
+	//도도부현
+	private String prefecture;
+	
+	//지역
+	private String region;
+	
+	//속성
+	private String type;
+	
+	//계절
+	private String season;
 
 	public String getId() {
 		return id;
@@ -31,8 +43,28 @@ public class SaveLocationDTO {
 		return locationNum;
 	}
 
-	public List getImageList() {
-		return imageList;
+	public String getLocationName() {
+		return locationName;
+	}
+
+	public String getPicture() {
+		return picture;
+	}
+
+	public String getPrefecture() {
+		return prefecture;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public String getSeason() {
+		return season;
 	}
 
 	public void setId(String id) {
@@ -43,22 +75,35 @@ public class SaveLocationDTO {
 		this.locationNum = locationNum;
 	}
 
-	public void setImageList(List imageList) {
-		this.imageList = imageList;
-	}
-	
-	public String getLocationName() {
-		return locationName;
-	}
-
 	public void setLocationName(String locationName) {
 		this.locationName = locationName;
+	}
+
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+
+	public void setPrefecture(String prefecture) {
+		this.prefecture = prefecture;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void setSeason(String season) {
+		this.season = season;
 	}
 
 	@Override
 	public String toString() {
 		return "SaveLocationDTO [id=" + id + ", locationNum=" + locationNum + ", locationName=" + locationName
-				+ ", imageList=" + imageList + "]";
+				+ ", picture=" + picture + ", prefecture=" + prefecture + ", region=" + region + ", type=" + type
+				+ ", season=" + season + "]";
 	}
 
 	//id만

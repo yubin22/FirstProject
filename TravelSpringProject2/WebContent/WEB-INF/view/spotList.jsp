@@ -10,20 +10,22 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv = "Content-Type">
-<title>관광지 목록 페이지</title>
+<title>여행지 목록 페이지</title>
 </head>
 <body>
-<!-- 비회원용-->
-관광지 목록
+여행지 목록
 <br>
-<table border="1">
+<table>
 		<tr>
-			<td colspan='2'>지명</td>
+			<td colspan='2'>여행지</td>
 		</tr>
 
 		<c:forEach items="${list}" var = "list">
 			<tr>
+				<td>${list.picture}</td>
 				<td>${list.locationName}</td>
+				<td>${list.prefecture}</td>
+				<td>${list.region}</td>
 				<td>
 					<input type="hidden" name="locationNum" value='${list.locationNum}' /><!-- '<jsp:getProperty name="dto" property="locationNum" />' -->
 				</td>

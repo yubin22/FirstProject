@@ -60,7 +60,7 @@
 				<tr>
 					<th id="title">휴대전화 : </th>
 					<td>
-						<input  type="text" name="phone" value='<jsp:getProperty property="phone" name="login"/>'>
+						<input  type="text" name="phone"  value='<jsp:getProperty property="phone" name="login"/>' />
 					</td>
 				</tr>
 				

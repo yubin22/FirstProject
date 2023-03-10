@@ -11,12 +11,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관광지 상세 페이지</title>
+<title>여행지 상세 페이지</title>
 </head>
 
 <body>
-	<!-- 비회원이 보는 관광지 설명 페이지 -->
-		관광지 설명
+	여행지 설명
 	<br>
 
 <!-- 로그인 안 됐을때 -->
@@ -34,7 +33,7 @@
 		
 		
 		<tr>
-			<td>${save.locationName}</td>
+			<td>${spot.locationName}</td>
 		</tr>
 		
 		
@@ -48,7 +47,7 @@
 	//서버로 전송 할 데이터
 	const form = {
 		id : '${login.id}',
-		locationName : '${save.locationName}'
+		locationNum : '${spot.locationNum}'
 	};
 	
 	//저장버튼 누르면

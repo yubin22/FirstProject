@@ -30,7 +30,13 @@ public class LoginDAOImpl implements LoginDAO {
 	public int updateLogin(LoginDTO dto) {
 		return sqlMapClientTemplate.update("updateLogin", dto);
 	}
-
+	
+	//내 여행지 삭제
+	@Override
+	public int deleteMyList(LoginDTO dto) {
+		return sqlMapClientTemplate.delete("deleteMyList", dto);
+	}
+	
 	@Override
 	public int deleteLogin(LoginDTO dto) {
 		return sqlMapClientTemplate.delete("deleteLogin", dto);

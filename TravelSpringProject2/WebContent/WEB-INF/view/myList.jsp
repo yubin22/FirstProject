@@ -20,7 +20,7 @@
 						<tr>
 							<th class="td_width_1"> </th>
 							<th class="td_width_2"></th>
-							<th class="td_width_3">관광지명</th>
+							<th class="td_width_3">여행지명</th>
 							<th class="td_width_4">삭제</th>
 						</tr>
 					</tbody>
@@ -40,7 +40,7 @@
 								<td class="td_width_3">${save.locationName}</td>
 								
 								<td class="td_width_4 table_text_align_center delete_btn">
-									<input type = "button" value="삭제" onclick="javascript:window.location='delete.sp'"/>
+									<input type = "button" value="삭제" onclick="javascript:window.location='delete.sp?locationNum=${save.locationNum}'"/>
 									<!-- button class = "delete_btn" data-cartid = "${save}">삭제</button-->
 								</td>
 							</tr>
@@ -50,8 +50,7 @@
 				
 				<!-- 삭제 form -->
 				<form action="delete.sp" method = "get" class = "delete_form">
-					<input type = "hidden" name = "cartId" class ="delete_cartId">
-					<input type = "hidden" name = "id" value="${save.id}">
+					<%-- <input type = "hidden" name = "id" value="${save.id}"> --%>
 				</form>
 				
 				<!-- 계획 만들기 -->
@@ -62,8 +61,8 @@
 </div>
 
 	<script type="text/javascript">
-	/*
-		//체크 박스 전체선택에서
+<%
+/* 		//체크 박스 전체선택에서
 		$(".all_check_input").on("click", function() {
 			
 			if($("all_check_input").prop("checked")){
@@ -88,8 +87,8 @@
 			$(".delete_cartId").val(cartId);
 			$(".delete_form").submit();
 			
-		});
-	*/
+		}); */
+%>
 	</script>
 </body>
 </html>

@@ -11,9 +11,12 @@ public class LoginDTO {
 	private String birth;
 	private String gender;
 	private String mail;
-	private int phone;
+	private String phone;
 	private String address;
-
+	
+	//저장된 여행지
+	private int locationNum;
+	
 	public String getId() {
 		return id;
 	}
@@ -32,11 +35,14 @@ public class LoginDTO {
 	public String getMail() {
 		return mail;
 	}
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 	public String getAddress() {
 		return address;
+	}
+	public int getLocationNum() {
+		return locationNum;
 	}
 	public void setId(String id) {
 		this.id = id;
@@ -56,17 +62,20 @@ public class LoginDTO {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	public void setLocationNum(int locationNum) {
+		this.locationNum = locationNum;
+	}
 	
 	@Override
 	public String toString() {
 		return "LoginDTO [id=" + id + ", pwd=" + pwd + ", name=" + name + ", birth=" + birth + ", gender=" + gender
-				+ ", email=" + mail + ", phone=" + phone + ", address=" + address + "]";
+				+ ", mail=" + mail + ", phone=" + phone + ", address=" + address + ", locationNum=" + locationNum + "]";
 	}
 	
 	//hashCode, equals는 id로만

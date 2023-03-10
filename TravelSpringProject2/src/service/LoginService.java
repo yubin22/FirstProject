@@ -9,6 +9,8 @@ public interface LoginService {
 	
 	public void insertLogin(LoginDTO dto);
 	public int updateLogin(LoginDTO dto);
+	
+	public int deleteMyList(LoginDTO dto);
 	public int deleteLogin(LoginDTO dto);
 
 	//아이디 중복 검사

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>여행 계획</title>
 </head>
 <body>
 <div class="section">
@@ -14,7 +14,7 @@
 						<tr>
 							<th class="td_width_1"></th>
 							<th class="td_width_2"></th>
-							<th class="td_width_3">관광지명</th>
+							<th class="td_width_3">여행지명</th>
 							<th class="td_width_4">삭제</th>
 						</tr>
 					</tbody>

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import model.LoginDTO;
+import model.SaveLocationDTO;
 import service.LoginService;
 
 //Controller를 상속또는 implements를 앋고 POJO방식으로 작성
@@ -108,11 +109,38 @@ public class LoginController {
 	}
 	
 	@RequestMapping("/deleteAction.sp")
-	public String delete(LoginDTO dto){
-		int result = loginService.deleteLogin(dto);
-		String res = "redirect:/deleteAfter.sp";
-		if (result == 0) {
+	public String delete(LoginDTO dto, HttpServletRequest request, HttpSession session, SaveLocationDTO save){
+		System.out.println("deleteAction");
+		
+		LoginDTO resu = loginService.getLogin(dto); //글 읽기
+		String req = request.getParameter("pwd");				//input pwd
+		System.out.println("입력한 비밀번호 : "+req);
+		
+		int result = 0;
+		String res = null;
+		
+		if((resu.getPwd().equals(req))){
+			/*
+			 * 저장된 여행지 delete 
+			 * 
+			 * locationnum은 db에 존재
+			 * db(saved_location)에서 locationnum을 꺼내고
+			 * logindto에 set
+			 * deleteMyList
+			 */
+			/*int num = ((SaveLocationDTO) session.getAttribute("save")).getLocationNum();
+			dto.setLocationNum(num);
+			System.out.println("deleteMyList 전 :: "+ dto);
+			result = loginService.deleteMyList(dto);
+			System.out.println("deleteMyList 후 :: "+ dto);*/
+			
+			//회원 정보 delete
+			result = loginService.deleteLogin(dto);
+			res = "redirect:/deleteAfter.sp";
+		}else if (result == 0) {
 			res = "fail";
+
+			return res;
 		}
 		return res;
 	}
@@ -131,12 +159,20 @@ public class LoginController {
 	}
 	
 	@RequestMapping("/updateForm.sp")
-	public String updateform(LoginDTO dto, HttpServletRequest request){
+	public String updateform(LoginDTO dto, HttpSession session, HttpServletRequest request){
 		LoginDTO result = loginService.getLogin(dto); //글 읽기
-		System.out.println(result);
-		request.setAttribute("login", result);  //모델앤 뷰중에서 모델~
+		String req = request.getParameter("pwd");				//input pwd
+		System.out.println("입력한 비밀번호 : "+req);
 		
-		return "updateForm";
+		if((result.getPwd().equals(req))) {
+
+			System.out.println(result);
+			request.setAttribute("login", result);  //모델앤 뷰중에서 모델~
+			return "updateForm";
+			
+		}else {
+			return "fail";
+		}
 	}
 	
 	@RequestMapping("/updateAction.sp")
