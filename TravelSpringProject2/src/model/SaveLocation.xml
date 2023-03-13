@@ -58,7 +58,7 @@
  
  <!-- myList 삭제 -->
  <delete id="deleteSave" parameterClass="save">
- 	delete from saved_location where location_num= #locationNum#
+ 	delete from saved_location where id = #id# and location_num= #locationNum#
  </delete>
  
 </sqlMap>

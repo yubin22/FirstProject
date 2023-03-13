@@ -20,18 +20,18 @@
 			<td colspan='2'>여행지</td>
 		</tr>
 
-		<c:forEach items="${list}" var = "list">
+		<c:forEach items="${list}" var = "li">
 			<tr>
-				<td>${list.picture}</td>
-				<td>${list.locationName}</td>
-				<td>${list.prefecture}</td>
-				<td>${list.region}</td>
+				<td>${li.picture}</td>
+				<td>${li.locationName}</td>
+				<td>${li.prefecture}</td>
+				<td>${li.region}</td>
 				<td>
-					<input type="hidden" name="locationNum" value='${list.locationNum}' /><!-- '<jsp:getProperty name="dto" property="locationNum" />' -->
+					<input type="hidden" name="locationNum" value='${li.locationNum}' /><!-- '<jsp:getProperty name="dto" property="locationNum" />' -->
 				</td>
 				
 				<td><span>
-					<input type = "button" value="상세 보기" onclick="javascript:window.location='spotInfo.sp?locationNum=${list.locationNum}'"/>
+					<input type = "button" value="상세 보기" onclick="javascript:window.location='spotInfo.sp?locationNum=${li.locationNum}'"/>
 				</span></td>
 			</tr>
 		</c:forEach>

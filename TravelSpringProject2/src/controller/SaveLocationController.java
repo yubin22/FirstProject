@@ -99,7 +99,7 @@ public class SaveLocationController {
 				//id.getId();
 				dto.setId(id);
 				SaveLocationDTO res = service.checkSave(dto);
-				System.out.println("checkSave : "+ dto);
+				System.out.println("checkSave : "+ res);
 				//res.getLocationNum()).equals()
 					if(res != null)
 					{

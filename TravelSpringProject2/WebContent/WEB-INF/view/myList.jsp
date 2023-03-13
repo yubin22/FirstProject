@@ -25,17 +25,17 @@
 				
 				<table class="cart_table">
 					<tbody>
-						<c:forEach items="${save}" var="save">		<!-- 내 장바구니에 있는 기본 정보 가져옴. 장바구니에 저장된 개수만큼 -->
+						<c:forEach items="${save}" var="list">		<!-- 내 장바구니에 있는 기본 정보 가져옴. 장바구니에 저장된 개수만큼 -->
 							<tr>
 								<!-- 이미지 -->
-								<td>${save.picture}</td>
+								<td>${list.picture}</td>
 		
-								<td>${save.prefecture}</td>
+								<td>${v.prefecture}</td>
 								
-								<td class="td_width_3">${save.locationName}</td>
+								<td class="td_width_3">${list.locationName}</td>
 								
 								<td class="td_width_4 table_text_align_center delete_btn">
-									<input type = "button" value="삭제" onclick="javascript:window.location='delete.sp?locationNum=${save.locationNum}'"/>
+									<input type = "button" value="삭제" onclick="javascript:window.location='delete.sp?locationNum=${list.locationNum}'"/>
 									<!-- button class = "delete_btn" data-cartid = "${save}">삭제</button-->
 								</td>
 							</tr>

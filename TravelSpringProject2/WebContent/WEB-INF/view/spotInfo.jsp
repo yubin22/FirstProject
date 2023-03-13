@@ -15,7 +15,20 @@
 <body>
 여행지 설명
 <br>
-<form name="spotInfo" action="saveAction.sp" method="get" onsubmit="return confirm('저장한 목록 보시겠습니까?')">
+
+<script type="text/javascript">
+function checkId(){
+	if(document.spotInfo.id.value == ""){
+		alert("로그인 해주세요.");
+		location.href = "loginForm.sp";
+	}else{
+		alert("저장한 목록 보시겠습니까?");
+		document.spotInfo.submit();
+	}
+}
+</script>
+
+<form name="spotInfo" action="saveAction.sp" method="get" >
 	
 	<table>
 		<tr>
@@ -35,7 +48,7 @@
 		<input type="hidden" name="id" value='${login.id}' />
 		<input type="hidden" name="locationNum" value='${info.locationNum}' />
 		
-		<input type = "submit" value="저장" class = "btn_cart"/>		<!-- onclick="javascript:window.location='spotAction.sp'"  spot.sp -->
+		<input type = "button" value="저장"  onclick="checkId()" class = "btn_cart"/>		<!-- onclick="javascript:window.location='spotAction.sp'"  spot.sp -->
 		
 		<!-- 다시 여행지 페이지로  -->
 		<input type="button" value="여행지" onclick="javascript:window.location='spotList.sp'" />
