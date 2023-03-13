@@ -49,7 +49,7 @@ public class SaveLocationDAOImpl implements SaveLocationDAO {
 	//목록 삭제 (성공 시 1, 실패 시 0)
 	@Override
 	public int deleteSave(SaveLocationDTO dto) {
-		return sqlMapClientTemplate.delete("deleteSave");
+		return sqlMapClientTemplate.delete("deleteSave", dto);
 	}
 	
 }

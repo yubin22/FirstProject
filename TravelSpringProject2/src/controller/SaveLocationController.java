@@ -99,18 +99,19 @@ public class SaveLocationController {
 				//id.getId();
 				dto.setId(id);
 				SaveLocationDTO res = service.checkSave(dto);
+				System.out.println("checkSave : "+ dto);
 				//res.getLocationNum()).equals()
 					if(res != null)
 					{
 						//존재
-						return "fail";
+						return "fail2";
 					}else 
 					{
 						//존재 안 함
 						service.addSave(dto);
 						session.setAttribute("save", dto);
 						System.out.println("addSave : "+ dto);
-						return "myList.sp?id="+dto.getId();
+						return "redirect:/myList.sp";		//dto.getId();
 					}
 			}
 		}
@@ -123,7 +124,7 @@ public class SaveLocationController {
 			if(login!=null) 
 			{
 				dto.setId(login.getId());
-				System.out.println("delete :: "+ dto);
+				System.out.println("myListBe :: "+ dto);
 				/*
 				 * id에 저장된 location 정보
 				 * myList.sp?id 로 페이지 이동
@@ -131,7 +132,7 @@ public class SaveLocationController {
 				 */
 				List<SaveLocationDTO> result = service.getMyList(dto);
 				request.setAttribute("save", result);
-				System.out.println("myList :: "+ result);
+				System.out.println("myListAf :: "+ result);
 				return "myList"; 		// ?id="+ save.getId();
 			
 		}else  res = "loginForm";
@@ -140,16 +141,22 @@ public class SaveLocationController {
 		
 	//삭제하기
 		@RequestMapping("/delete.sp")
-		public String delete(SaveLocationDTO save, HttpSession session) {			
+		public String delete(SaveLocationDTO dto, HttpSession session, HttpServletRequest request) {			
 			LoginDTO login = (LoginDTO) session.getAttribute("login");
 			String res = "";
 			if(login!=null) 
 			{
-				save.setId(login.getId());
-				System.out.println("delete :: "+ save);
+				dto.setId(login.getId());
 				
-				int result = service.deleteSave(save);	
-				res = (result == 0) ? "fail" : "redirect:/myList.sp";
+				int result = service.deleteSave(dto);
+				System.out.println("delete :: "+ dto);
+				
+				//저장목록 재출력
+				List<SaveLocationDTO> result2 = service.getMyList(dto);
+				request.setAttribute("save", result2);
+				System.out.println("myList :: "+ result2);
+				
+				return "redirect:/myList.sp"; 	//res = (result == 0) ? "fail" : "redirect:/myList.sp";
 			}else 
 			{
 				res = "loginForm";

@@ -38,7 +38,7 @@
  
  <!-- id별 여행지 목록 -->
  <select id="getMyList" parameterClass="save" resultClass="save">
- 	select s.id, s.location_num as locationnum, l.location_name as locationname
+ 	select s.id, s.location_num as locationnum, l.picture, l.prefecture, l.location_name as locationname
 	from saved_location s
 	join location l
 	on (s.location_num = l.location_num)
@@ -57,7 +57,7 @@
  </select> 
  
  <!-- myList 삭제 -->
- <delete id="deleteSave" parameterClass="int">
+ <delete id="deleteSave" parameterClass="save">
  	delete from saved_location where location_num= #locationNum#
  </delete>
  

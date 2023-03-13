@@ -11,15 +11,12 @@
 <body>
 <div class="section">
 <!-- 체크 박스 전체 -->
-				<div class = "all_check">
-					<input type="checkbox" class = "all_check_input" checked="checked"><span class = "all_check_span">전체선택</span>
-				</div>
 				
 				<table class="subject_table">
 					<tbody>
 						<tr>
 							<th class="td_width_1"> </th>
-							<th class="td_width_2"></th>
+							<th class="td_width_2">도도부현</th>
 							<th class="td_width_3">여행지명</th>
 							<th class="td_width_4">삭제</th>
 						</tr>
@@ -30,12 +27,10 @@
 					<tbody>
 						<c:forEach items="${save}" var="save">		<!-- 내 장바구니에 있는 기본 정보 가져옴. 장바구니에 저장된 개수만큼 -->
 							<tr>
-								<td class="td_width_1">
-									<input type="checkbox" class="individual_checkbox" checked="checked">
-								</td>
-								
 								<!-- 이미지 -->
-								<td class="td_width_2"></td>
+								<td>${save.picture}</td>
+		
+								<td>${save.prefecture}</td>
 								
 								<td class="td_width_3">${save.locationName}</td>
 								
