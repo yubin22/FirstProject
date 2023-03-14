@@ -23,8 +23,7 @@
 	<result property="gender" column="gender" />     	 	
 	<result property="mail" column="mail" />     	 	
 	<result property="phone" column="phone" />     	 	
-	<result property="address" column="address" />      	 	
-	<result property="locationNum" column="location_num" /> 
+	<result property="address" column="address" />
 	
  </resultMap>
  
@@ -44,11 +43,6 @@
  	update member set pwd=#pwd#, name=#name#, mail=#mail#,  phone=#phone#, address=#address#
  	where id=#id#
  </update>
- 
-<!-- myList 삭제 -->
-<delete id="deleteMyList" parameterClass="login">
-	delete from saved_location where location_num= #locationNum#
-</delete>
  
  <!-- 삭제 -->
  <delete id="deleteLogin" parameterClass="login">

@@ -120,20 +120,6 @@ public class LoginController {
 		String res = null;
 		
 		if((resu.getPwd().equals(req))){
-			/*
-			 * 저장된 여행지 delete 
-			 * 
-			 * locationnum은 db에 존재
-			 * db(saved_location)에서 locationnum을 꺼내고
-			 * logindto에 set
-			 * deleteMyList
-			 */
-			/*int num = ((SaveLocationDTO) session.getAttribute("save")).getLocationNum();
-			dto.setLocationNum(num);
-			System.out.println("deleteMyList 전 :: "+ dto);
-			result = loginService.deleteMyList(dto);
-			System.out.println("deleteMyList 후 :: "+ dto);*/
-			
 			//회원 정보 delete
 			result = loginService.deleteLogin(dto);
 			res = "redirect:/deleteAfter.sp";
